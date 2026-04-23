@@ -334,21 +334,19 @@ export default function App() {
   return (
     <div className="h-screen w-full bg-[#F2F0ED] text-[#333333] font-serif overflow-hidden flex flex-col relative">
       {/* Top Navigation Bar */}
-      <header className="w-full py-4 md:py-8 pl-4 pr-6 md:px-12 flex flex-col sm:flex-row justify-between items-baseline sm:items-center border-b border-[#DCD9D4] shrink-0 bg-[#FAF9F7] relative z-20">
-        <div className="flex items-center gap-3 md:gap-6">
-          <button 
-            onClick={() => setIsSidebarOpen(true)}
-            className="w-10 h-10 shrink-0 flex items-center justify-center bg-white border border-[#EBE8E4] rounded-full hover:bg-[#222] hover:text-white transition-colors"
-          >
-            <Menu className="w-4 h-4" />
-          </button>
-          <h1 className="text-3xl lg:text-4xl tracking-tight text-[#222] flex items-baseline">
-            <span className="font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#8C867A]">Tokyo & Kyoto / Architecture & KYOTOGRAPHIE</span>
-          </h1>
-        </div>
-        <div className="flex gap-4 md:gap-8 font-sans text-[10px] uppercase tracking-[0.2em] text-[#8C867A] mt-4 sm:mt-0 ml-14 sm:ml-0">
-          <span>Volume 01</span>
-          <span>Spring 2026</span>
+      <header className="w-full py-2 pl-1 pr-6 md:px-12 border-b border-[#DCD9D4] shrink-0 bg-[#FAF9F7] relative z-20">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4 md:gap-8">
+            <button 
+              onClick={() => setIsSidebarOpen(true)}
+              className="w-12 h-12 shrink-0 flex items-center justify-center rounded-full hover:bg-[#222]/5 transition-colors"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+            <div className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#8C867A]">
+              <span>Spring 2026</span>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -396,12 +394,11 @@ export default function App() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300, mass: 0.8 }}
-              className="fixed top-0 left-0 bottom-0 w-[85vw] max-w-[360px] bg-[#FAF9F7] z-50 flex flex-col shadow-2xl border-r border-[#DCD9D4]"
+              className="fixed top-0 left-0 bottom-0 w-fit max-w-[90vw] bg-[#FAF9F7] z-50 flex flex-col shadow-2xl border-r border-[#DCD9D4]"
             >
-              <div className="p-4 md:p-6 border-b border-[#DCD9D4] bg-white sticky top-0 flex justify-between items-center shrink-0">
+              <div className="p-4 md:p-6 border-b border-[#DCD9D4] bg-white sticky top-0 flex justify-between items-center gap-8 shrink-0">
                 <div>
-                  <p className="font-sans text-[11px] uppercase tracking-widest text-[#8C867A] mb-1">Overview</p>
-                  <h2 className="text-xl">The Journey</h2>
+                  <h2 className="text-xl whitespace-nowrap">The Journey</h2>
                 </div>
                 <button 
                   onClick={() => setIsSidebarOpen(false)}
@@ -421,9 +418,8 @@ export default function App() {
                   }`}
                 >
                   <div className={`absolute left-0 top-0 bottom-0 w-[2px] bg-[#222] transition-all duration-700 ease-[0.22,1,0.36,1] origin-top ${openDay === 0 ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 group-hover:scale-y-50 group-hover:opacity-20'}`} />
-                  <span className={`transition-all duration-700 ease-[0.22,1,0.36,1] ${openDay === 0 ? 'text-[#222] translate-x-2' : 'text-[#8C867A] group-hover:translate-x-1'}`}>
-                    <span className="font-sans font-medium text-[10px] uppercase tracking-widest block">COVER PAGE</span> 
-                    <span className="mt-1 font-serif italic text-[15px] block">Architecture & Taste / Kyoto & Tokyo</span>
+                  <span className={`transition-all duration-700 ease-[0.22,1,0.36,1] whitespace-nowrap ${openDay === 0 ? 'text-[#222] translate-x-2' : 'text-[#8C867A] group-hover:translate-x-1'}`}>
+                    <span className="font-serif italic text-[15px] block uppercase tracking-widest">Home</span>
                   </span>
                 </div>
                 {itineraryData.map((dayData) => {
@@ -435,18 +431,18 @@ export default function App() {
                         setOpenDay(dayData.day);
                         setIsSidebarOpen(false);
                       }}
-                      className={`p-5 md:p-6 border-b flex flex-col sm:flex-row justify-between sm:items-center cursor-pointer transition-all duration-700 relative group overflow-hidden ${
+                      className={`p-5 md:p-6 border-b flex flex-col sm:flex-row justify-between sm:items-center gap-8 cursor-pointer transition-all duration-700 relative group overflow-hidden ${
                         isActive 
                           ? 'border-[#DCD9D4] bg-[#FAF9F7]' 
                           : 'border-[#EBE8E4] bg-white hover:bg-[#FAF9F7]'
                       }`}
                     >
                       <div className={`absolute left-0 top-0 bottom-0 w-[2px] bg-[#222] transition-all duration-700 ease-[0.22,1,0.36,1] origin-top ${isActive ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 group-hover:scale-y-50 group-hover:opacity-20'}`} />
-                      <span className={`transition-all duration-700 ease-[0.22,1,0.36,1] ${isActive ? 'text-[#222] translate-x-2' : 'text-[#8C867A] group-hover:translate-x-1'}`}>
+                      <span className={`transition-all duration-700 ease-[0.22,1,0.36,1] whitespace-nowrap ${isActive ? 'text-[#222] translate-x-2' : 'text-[#8C867A] group-hover:translate-x-1'}`}>
                         <span className="font-sans font-medium text-[10px] uppercase tracking-widest block sm:inline">DAY {dayData.day.toString().padStart(2, '0')}</span> 
                         <span className="mt-1 sm:mt-0 sm:ml-4 font-serif italic text-[15px] block sm:inline">{dayData.title.split(' —— ')[0]}</span>
                       </span>
-                      <span className={`font-mono text-[10px] mt-3 sm:mt-0 transition-all duration-700 ease-[0.22,1,0.36,1] ${isActive ? 'opacity-100 text-[#222]' : 'opacity-40 text-[#8C867A]'}`}>{dayData.date}</span>
+                      <span className={`font-mono text-[10px] mt-3 sm:mt-0 transition-all duration-700 ease-[0.22,1,0.36,1] whitespace-nowrap ${isActive ? 'opacity-100 text-[#222]' : 'opacity-40 text-[#8C867A]'}`}>{dayData.date}</span>
                     </div>
                   );
                 })}
@@ -460,7 +456,7 @@ export default function App() {
       <footer className="w-full py-4 px-6 md:px-12 border-t border-[#DCD9D4] bg-[#FAF9F7] flex justify-between items-center shrink-0 z-20 relative">
         <div className="flex gap-6 font-sans text-[10px] uppercase tracking-[0.2em] text-[#8C867A]">
           <span>
-            {openDay === 0 ? "Cover Page" : `Day ${openDay.toString().padStart(2, '0')}`}
+            {openDay === 0 ? "" : `Day ${openDay.toString().padStart(2, '0')}`}
           </span>
           <span className="hidden sm:inline">Syncing to Xiaoyuzhou</span>
         </div>
@@ -468,7 +464,6 @@ export default function App() {
           <div className="hidden sm:block h-1 w-32 bg-[#EBE8E4] rounded-full overflow-hidden">
             <div className="h-full bg-[#8C867A] transition-all duration-500 delay-100" style={{ width: `${(openDay / 10) * 100}%` }}></div>
           </div>
-          <span className="font-sans text-[10px] text-[#8C867A]">{Math.round((openDay / 10) * 100)}% Complete</span>
         </div>
       </footer>
     </div>
