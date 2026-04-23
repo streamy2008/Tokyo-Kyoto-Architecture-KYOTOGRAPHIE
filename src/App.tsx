@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { MapPin, Headphones, ExternalLink } from 'lucide-react';
+import { MapPin, Headphones, ExternalLink, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 type Location = {
@@ -50,7 +50,7 @@ const itineraryData: DayPanel[] = [
       },
       { time: "13:30", name: "1LDK apartments.", description: "中目黑标志性买手店，精选男女装与生活杂货。", isKeyPlace: false, imageUrl: "https://onlinestore.1ldkshop.com/contents/wp-content/uploads/2026/03/%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A-1-1-scaled.jpg" },
       { time: "14:30", name: "TRAVELER'S FACTORY", description: "TN旅人笔记本全球旗舰店，藏在隐秘巷子里的复古文具天堂。", isKeyPlace: false, hideImage: true },
-      { time: "15:30", name: "OKURA (オクラ)", description: "和风浓郁的旧木屋，主打日本传统蓝染工艺服饰与 Boro 拼布单品。", isKeyPlace: false, imageUrl: "https://scontent-nrt6-1.cdninstagram.com/v/t51.82787-15/670866874_18355796272235964_8495462003278812876_n.jpg?stp=dst-jpg_e35_p1080x1080_tt6&_nc_cat=106&ig_cache_key=Mzg3Nzg3NTYyNDg1MzQ5MTQxMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=-GZpe0V51S8Q7kNvwGrZ9Sc&_nc_oc=AdpFywEixvDdryCPL_yM2qQ9q1TFCOomP1uZ_20WmVxmkev83Y5I-NWz7C9rQfn-vi1y2j6fJ7J-P_u2-9PFWSVO&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt6-1.cdninstagram.com&_nc_gid=5HSt2jDrBB1qPOIjo4wP0g&_nc_ss=7a22e&oh=00_Af0z-VvfQbPBe1XYp_0f0ZmttQHya-20lbVq_LnngwXqIg&oe=69EFD928" },
+      { time: "15:30", name: "OKURA (オクラ)", description: "和风浓郁的旧木屋，主打日本传统蓝染工艺服饰与 Boro 拼布单品。", isKeyPlace: false, hideImage: true },
       { 
         time: "19:00", name: "Narisawa", description: "米其林二星，体验主厨对日本自然生态的饮食哲学表达。", isKeyPlace: true,
         imageUrl: "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/1334583/2800mm_x_1420mm_2_wh2bys.jpg",
@@ -290,6 +290,7 @@ const DayDetail = ({ activeDayData }: { activeDayData: DayPanel }) => {
 
 export default function App() {
   const [openDay, setOpenDay] = useState<number>(1);
+  const [isMobileDetailOpen, setIsMobileDetailOpen] = useState<boolean>(false);
   
   const activeDayData = itineraryData.find(d => d.day === openDay) || itineraryData[0];
 
@@ -321,7 +322,10 @@ export default function App() {
               return (
                 <div key={dayData.day} className="flex flex-col bg-white">
                   <div 
-                    onClick={() => setOpenDay(dayData.day)}
+                    onClick={() => {
+                      setOpenDay(dayData.day);
+                      setIsMobileDetailOpen(true);
+                    }}
                     className={`p-5 md:p-6 border-b lg:border-b flex flex-col sm:flex-row justify-between sm:items-center cursor-pointer transition-all duration-700 relative group overflow-hidden ${
                       isActive 
                         ? 'border-[#DCD9D4] bg-[#FAF9F7]' 
@@ -335,22 +339,6 @@ export default function App() {
                     </span>
                     <span className={`font-mono text-[10px] mt-3 sm:mt-0 transition-all duration-700 ease-[0.22,1,0.36,1] ${isActive ? 'opacity-100 text-[#222]' : 'opacity-40 text-[#8C867A]'}`}>{dayData.date}</span>
                   </div>
-                  
-                  {/* Mobile Accordion Content */}
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="lg:hidden overflow-hidden bg-white"
-                      >
-                        <div className="px-6 py-10 border-b border-[#DCD9D4]">
-                          <DayDetail activeDayData={activeDayData} />
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
               );
             })}
@@ -378,6 +366,32 @@ export default function App() {
           <span className="font-sans text-[10px] text-[#8C867A]">{Math.round((openDay / 10) * 100)}% Complete</span>
         </div>
       </footer>
+
+      {/* Mobile Fullscreen Detail View */}
+      <AnimatePresence>
+        {isMobileDetailOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: "100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-50 bg-white flex flex-col lg:hidden overflow-hidden"
+          >
+            <div className="flex justify-between items-center px-6 py-4 border-b border-[#DCD9D4] bg-[#FAF9F7] shrink-0 sticky top-0 z-10">
+              <button 
+                onClick={() => setIsMobileDetailOpen(false)}
+                className="flex items-center gap-2 font-sans text-[10px] uppercase tracking-widest text-[#8C867A] hover:text-[#222] transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" /> Back
+              </button>
+              <span className="font-mono text-[10px] text-[#222]">DAY {activeDayData.day.toString().padStart(2, '0')}</span>
+            </div>
+            <div className="flex-1 overflow-y-auto px-6 py-8">
+              <DayDetail activeDayData={activeDayData} />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
