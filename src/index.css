@@ -4,9 +4,11 @@
 @theme {
   --font-sans: "Noto Serif SC", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Noto Serif SC", ui-serif, Georgia, serif;
-  --font-mono: "Noto Serif SC", ui-monospace, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 body {
   font-family: "Noto Serif SC", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

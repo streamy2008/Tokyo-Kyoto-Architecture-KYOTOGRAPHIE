@@ -43,16 +43,29 @@ const itineraryData: DayPanel[] = [
     day: 2, date: "5/3", title: "代官山 / 中目黑 —— 质感生活街区与独立品牌",
     locations: [
       { 
-        time: "11:00", name: "代官山 T-Site", description: "由 Klein Dytham 建筑事务所设计，颠覆全球书店商业模式的建筑群落。并在旁边的 IVY PLACE 享用早午餐。", isKeyPlace: true,
+        time: "11:00", name: "代官山 T-Site", description: "由 Klein Dytham 建筑事务所设计，颠覆全球书店商业模式的建筑群落。在旁边的 IVY PLACE 享用早午餐（推荐必点：经典酪乳松饼 Classic Buttermilk Pancakes 以及招牌平铺面包配鹰嘴豆泥 Hummus）。", isKeyPlace: true,
         imageUrl: "https://store.tsite.jp/static_contents/site/tsite/daikanyama/img/about/key.jpg?time=20240122",
         casaLink: "https://casabrutus.com/search?q=代官山+T-Site",
         audioLink: "https://www.xiaoyuzhoufm.com/episode/601d3606f1dcc7dc22ed9b22"
       },
-      { time: "13:30", name: "1LDK apartments.", description: "中目黑标志性买手店，精选男女装与生活杂货。", isKeyPlace: false, imageUrl: "https://onlinestore.1ldkshop.com/contents/wp-content/uploads/2026/03/%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A-1-1-scaled.jpg" },
-      { time: "14:30", name: "TRAVELER'S FACTORY", description: "TN旅人笔记本全球旗舰店，藏在隐秘巷子里的复古文具天堂。", isKeyPlace: false, hideImage: true },
-      { time: "15:30", name: "OKURA (オクラ)", description: "和风浓郁的旧木屋，主打日本传统蓝染工艺服饰与 Boro 拼布单品。", isKeyPlace: false, hideImage: true },
+      { time: "13:30", name: "1LDK apartments.", description: "中目黑标志性买手店，精选男女装与生活杂货。对面就是目黑川，是街区质感生活的窗口。", isKeyPlace: false, imageUrl: "https://onlinestore.1ldkshop.com/contents/wp-content/uploads/2026/03/%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A-1-1-scaled.jpg", audioLink: "https://www.xiaoyuzhoufm.com/episode/601d3606f1dcc7dc22ed9b22" },
       { 
-        time: "19:00", name: "Narisawa", description: "米其林二星，体验主厨对日本自然生态的饮食哲学表达。", isKeyPlace: true,
+        time: "14:15", name: "visvim NAKAMEGURO", 
+        description: "中村世纪的中目黑旗舰展示空间。空间设计融合了传统木工与现代艺术感，展示男装全系列及其独特的‘Future Luddite’美学。", 
+        isKeyPlace: true, 
+        imageUrl: "https://www.visvim.tv/jp/dissertation/img/pht_wmv_v_tokyo_12.jpg",
+        officialLink: "https://www.visvim.tv/",
+        audioLink: "https://www.xiaoyuzhoufm.com/episode/66416f406ab15a81ca040713"
+      },
+      { 
+        time: "15:00", name: "vendor (COVERCHORD)", 
+        description: "nonnative 的实体旗舰店，Coverchord 的线下灵魂所在地，代表了中目黑的‘城市户外’机能美学。", 
+        isKeyPlace: false, 
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTch8-0G90d6lSjKg0wVIzlMApby4V7sduz4dbKTYnqZe_eHdIpZWq_N04&s=10",
+        audioLink: "https://www.xiaoyuzhoufm.com/episode/66416f406ab15a81ca040713"
+      },
+      { 
+        time: "19:00", name: "Narisawa", description: "米其林二星。体验主厨将‘森林’搬上餐桌的饮食哲学，是极具人文情怀的创意料理巅峰。", isKeyPlace: true,
         imageUrl: "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/1334583/2800mm_x_1420mm_2_wh2bys.jpg",
         casaLink: "https://casabrutus.com/search?q=Narisawa",
         audioLink: "https://www.xiaoyuzhoufm.com/episode/64df2292f7eaefa21d03c737"
@@ -62,29 +75,95 @@ const itineraryData: DayPanel[] = [
   {
     day: 3, date: "5/4", title: "荻窪 —— 昭和史舞台与和洋折衷庭园",
     locations: [
-      { 
-        time: "11:00", name: "荻外荘公园", description: "由建筑家伊东忠太设计，发生过“荻窪会谈”等重大历史事件的昭和史核心舞台。", isKeyPlace: true,
-        imageUrl: "https://ogikubo3gardens.jp/img/tekigaiso/cover1-pc.jpg",
-        casaLink: "https://casabrutus.com/categories/architecture/437513",
-        audioLink: "https://www.xiaoyuzhoufm.com/episode/628f4116491ab516515bb554"
-      },
-      { time: "12:30", name: "荻外荘别栋喫茶室", description: "在小泉诚设计的全新桌椅上，品尝咖啡羊羹搭配有机抹茶。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/628f4116491ab516515bb554", imageUrl: "https://scontent-nrt6-1.cdninstagram.com/v/t51.75761-15/502384171_17905352517178213_3225339950688031329_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=105&ig_cache_key=MzY0NjY1NTIyNDY2MTUxMDgzOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTA3OS5oZHIuQzMifQ%3D%3D&_nc_ohc=305TT-86EjQQ7kNvwEfBUas&_nc_oc=AdojggQ9taQBIlPShSBw1Id23xb_gmRd3U1h4Ov1L4iqwdeK8BHfJL5DlVakPJuXsA8PiGdN7s6En-QrijfkIiTY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt6-1.cdninstagram.com&_nc_gid=7cN6GgWm0ZS5vsT8w2jbOQ&_nc_ss=7a22e&oh=00_Af3kmjGtsPaCYbkEw_wiEIiItRuYdvVfQ487zxlIHhWTMA&oe=69EFD30F" },
-      { time: "14:00", name: "荻窪三庭園", description: "漫步于善福寺川静谧住宅区的音乐家故居回游式庭园。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/6131f6a15291baf80eb21cdb", imageUrl: "https://ogikubo3gardens.jp/img/ootaguro/cover4-pc.jpg", officialLink: "https://ogikubo3gardens.jp/" },
-      { time: "18:30", name: "神乐坂 虎白", description: "神乐坂的米其林三星，享受极具颠覆感与高级质感的顶级怀石料理。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/656ab35e381662fb52ab27e3", hideImage: true }
-    ]
+  {
+    "time": "11:00",
+    "name": "欧風カレー トマト (Tomato)",
+    "description": "荻窪排名第一、常年居于 Tabelog 日本咖喱榜首的传奇名店。36 种香料精心勾勒出的极致欧风咖喱。推荐必吃：和牛牛肉咖喱配芝士（和牛ビーフカレー）。",
+    "isKeyPlace": true,
+    "imageUrl": "https://www.chuosen-rr.com/wp/wp-content/uploads/2020/02/interview15-12.jpg"
+  },
+  {
+    "time": "14:00",
+    "name": "荻外荘公园",
+    "description": "由建筑家伊东忠太设计，发生过“荻窪会谈”等重大历史事件的昭和史核心舞台。",
+    "isKeyPlace": true,
+    "imageUrl": "https://ogikubo3gardens.jp/img/tekigaiso/cover1-pc.jpg",
+    "casaLink": "https://casabrutus.com/categories/architecture/437513",
+    "audioLink": "https://www.xiaoyuzhoufm.com/episode/628f4116491ab516515bb554"
+  },
+  {
+    "time": "15:30",
+    "name": "荻外荘别栋喫茶室",
+    "description": "在小泉诚设计的全新桌椅上，品尝咖啡羊羹搭配有机抹茶。",
+    "isKeyPlace": true,
+    "audioLink": "https://www.xiaoyuzhoufm.com/episode/628f4116491ab516515bb554",
+    "imageUrl": "https://scontent-nrt6-1.cdninstagram.com/v/t51.75761-15/502384171_17905352517178213_3225339950688031329_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=105&ig_cache_key=MzY0NjY1NTIyNDY2MTUxMDgzOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTA3OS5oZHIuQzMifQ%3D%3D&_nc_ohc=305TT-86EjQQ7kNvwEfBUas&_nc_oc=AdojggQ9taQBIlPShSBw1Id23xb_gmRd3U1h4Ov1L4iqwdeK8BHfJL5DlVakPJuXsA8PiGdN7s6En-QrijfkIiTY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt6-1.cdninstagram.com&_nc_gid=7cN6GgWm0ZS5vsT8w2jbOQ&_nc_ss=7a22e&oh=00_Af3kmjGtsPaCYbkEw_wiEIiItRuYdvVfQ487zxlIHhWTMA&oe=69EFD30F"
+  },
+  {
+    "time": "16:30",
+    "name": "荻窪三庭园",
+    "description": "漫步于善福寺川静谧住宅区的音乐家故居回游式庭园。",
+    "isKeyPlace": true,
+    "audioLink": "https://www.xiaoyuzhoufm.com/episode/628f4116491ab516515bb554",
+    "imageUrl": "https://ogikubo3gardens.jp/img/ootaguro/cover4-pc.jpg",
+    "officialLink": "https://ogikubo3gardens.jp/"
+  },
+  {
+    "time": "18:30",
+    "name": "神乐坂 虎白",
+    "description": "神乐坂的米其林三星，享受极具颠覆感与高级质感的顶级怀石料理。",
+    "isKeyPlace": true,
+    "audioLink": "https://www.xiaoyuzhoufm.com/episode/656ab35e381662fb52ab27e3",
+    "hideImage": true
+  }
+]
   },
   {
     day: 4, date: "5/5", title: "市谷 —— 活版印刷、昭和摩登与文学记忆",
     locations: [
-      { 
-        time: "10:30", name: "市谷の杜 本と活字馆", description: "原工厂旧址上复原再生的昭和初期分离派建筑。可免费体验桌面活版印刷机。", isKeyPlace: true,
-        imageUrl: "https://ichigaya-letterpress.jp/common/image/og_img.png",
-        casaLink: "https://casabrutus.com/search?q=市谷の杜+本と活字館",
-        audioLink: "https://www.xiaoyuzhoufm.com/episode/6154378f447a27ebf88eb219"
-      },
-      { time: "13:00", name: "喫茶ロン", description: "纯正的昭和摩登（Showa Modern）空间肌理，体验正宗“纯喫茶”慢生活。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/60a6311de0f5e723bb71eb71", imageUrl: "https://scontent-nrt1-1.cdninstagram.com/v/t51.82787-15/625363342_18079727273463401_3128607665240894679_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzM4OTI4Mzc0MDIxMTExNDY5Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjgzNng4MzYuc2RyLkMzIn0%3D&_nc_ohc=t8XcpajFVhsQ7kNvwHUcX_y&_nc_oc=AdoLHN538GbVpzeYLDC3pfo7wy8vr3RG32KUNJLYLZTLAfPyltojP0p9JrYb-9SIJtfe_FJaDEm9xLhCxg7mtehH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-1.cdninstagram.com&_nc_gid=JN9pNkhpTnkqACJpQqGQcg&_nc_ss=7a22e&oh=00_Af2Kvpzq7Y9d4ZDQo5iO7CH6Pwhlz3DRMioToLj9gdEk8Q&oe=69EFB428" },
-      { time: "18:30", name: "Seizan 晴山", description: "位于三田的米其林二星，在极具季节感的高级割烹氛围中享用晚餐。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/650b21dfb5c00e62057d1eb2", imageUrl: "https://storage.googleapis.com/otoriyose-admin-prd/uploads/%E6%99%B4%E5%B1%B1_TOP__3___1___1_.jpg" }
-    ]
+  {
+    "time": "11:00",
+    "name": "喫茶ロン",
+    "description": "在此享用昭和风情早午餐。纯正的昭和摩登（Showa Modern）空间肌理，体验正宗“纯喫茶”慢生活。推荐必点：厚烧玉子三明治（たまごサンド）以及招牌混合咖啡。",
+    "isKeyPlace": true,
+    "audioLink": "https://www.xiaoyuzhoufm.com/episode/60a6311de0f5e723bb71eb71",
+    "imageUrl": "https://scontent-nrt1-1.cdninstagram.com/v/t51.82787-15/625363342_18079727273463401_3128607665240894679_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzM4OTI4Mzc0MDIxMTExNDY5Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjgzNng4MzYuc2RyLkMzIn0%3D&_nc_ohc=t8XcpajFVhsQ7kNvwHUcX_y&_nc_oc=AdoLHN538GbVpzeYLDC3pfo7wy8vr3RG32KUNJLYLZTLAfPyltojP0p9JrYb-9SIJtfe_FJaDEm9xLhCxg7mtehH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-1.cdninstagram.com&_nc_gid=JN9pNkhpTnkqACJpQqGQcg&_nc_ss=7a22e&oh=00_Af2Kvpzq7Y9d4ZDQo5iO7CH6Pwhlz3DRMioToLj9gdEk8Q&oe=69EFB428"
+  },
+  {
+    "time": "13:00",
+    "name": "市谷の杜 本と活字馆",
+    "description": "原工厂旧址上复原再生的昭和初期分离派建筑。可免费体验桌面活版印刷机。",
+    "isKeyPlace": true,
+    "imageUrl": "https://ichigaya-letterpress.jp/common/image/og_img.png",
+    "casaLink": "https://casabrutus.com/search?q=市谷の杜+本和活字館",
+    "audioLink": "https://www.xiaoyuzhoufm.com/episode/6154378f447a27ebf88eb219"
+  },
+  {
+    "time": "15:00",
+    "name": "赤城神社 (Akagi Shrine)",
+    "description": "由隈研吾主持设计的“日本最美现代化神社”。玻璃幕墙与时尚住宅融为一体，彻底颠覆传统神社的视觉逻辑。",
+    "isKeyPlace": true,
+    "imageUrl": "https://www.gotokyo.org/shared/site_gotokyo/images/event/2021/210323_akagijinja/main.jpg",
+    "casaLink": "https://casabrutus.com/search?q=赤城神社",
+    "hideImage": true
+  },
+  {
+    "time": "16:30",
+    "name": "神乐坂“捉迷藏”小巷",
+    "description": "漫步于神乐坂的石板路窄巷（如捉迷藏横丁、兵库坂）。这里曾是艺伎出入的繁华地，保留着极具质感的料亭与曲径通幽感。",
+    "isKeyPlace": false,
+    "imageUrl": "https://www.gotokyo.org/en/destinations/central-tokyo/kagurazaka/images/sub_main.jpg",
+    "hideImage": true
+  },
+  {
+    "time": "18:30",
+    "name": "Seizan 晴山",
+    "description": "位于三田的米其林二星，在极具季节感的高级割烹氛围中享用晚餐。",
+    "isKeyPlace": true,
+    "audioLink": "https://www.xiaoyuzhoufm.com/episode/650b21dfb5c00e62057d1eb2",
+    "hideImage": true
+  }
+]
   },
   {
     day: 5, date: "5/6", title: "东京转京都 —— 洛中摄影核心区",
@@ -93,10 +172,10 @@ const itineraryData: DayPanel[] = [
         time: "13:30", name: "八竹庵（旧川崎家住宅）", description: "参观 FATMA HASSONA 等多场 KYOTOGRAPHIE 展览。", isKeyPlace: true,
         imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2024/12/220410_DSC2216_4000-2048x1248.jpg",
         casaLink: "https://casabrutus.com/search?q=八竹庵",
-        audioLink: "https://www.xiaoyuzhoufm.com/episode/646c2db57eb0a12e3e551f38"
+        audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626"
       },
-      { time: "14:30", name: "京都文化博物馆 別館", description: "在辰野金吾设计的红砖西洋建筑内看展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/61d2d3a31c51dffc5064e9a3", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/12/368451053e4d146b1fd04a02e7d6f1f6-1686x2400.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/linder-sterling/" },
-      { time: "15:30", name: "嶋臺（しまだい）ギャラリー", description: "具有 400 年历史的传统建筑中的摄影当代展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/646c2db57eb0a12e3e551f38", imageUrl: "https://shimadai-gallery.com/wp-content/uploads/2025/04/IMG_0079.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/anton-corbijn/" },
+      { time: "14:30", name: "京都文化博物馆 別館", description: "在辰野金吾设计的红砖西洋建筑内看展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/12/368451053e4d146b1fd04a02e7d6f1f6-1686x2400.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/linder-sterling/" },
+      { time: "15:30", name: "嶋臺（しまだい）ギャラリー", description: "具有 400 年历史的传统建筑中的摄影当代展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://shimadai-gallery.com/wp-content/uploads/2025/04/IMG_0079.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/anton-corbijn/" },
       { time: "19:00", name: "食堂 おがわ", description: "感受吧台氛围极佳的市井神级割烹（极难订位），或选择 Gion Sasaki（米其林三星）。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/612a14e9f73111ba71edcfaf", imageUrl: "https://scontent-nrt1-1.cdninstagram.com/v/t51.82787-15/659413644_18179174446379964_1987458934756460599_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=103&ig_cache_key=MzI4NTY0NDk1MTQyNDkzNzMxMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5oZHIuQzMifQ%3D%3D&_nc_ohc=FG6tWtSa5icQ7kNvwFuksgr&_nc_oc=Adq3GS54Td64rEVX3EGCLaI2GEdQ_mtf1qqVvz3oQVJm3nUeBOb6YcW87x8zz0Zffr9fcSK_M-b2muIOlGCRyU9T&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-1.cdninstagram.com&_nc_gid=oZp8BUpcnk65E3TKmoLORg&_nc_ss=7a22e&oh=00_Af2lyouce7AeUjGD_DKNDy02qouIswKDA-Ubi_lmPXqZpw&oe=69EFBD53" }
     ]
   },
@@ -107,11 +186,11 @@ const itineraryData: DayPanel[] = [
         time: "11:00", name: "京都市京瓷美术馆", description: "青木淳改造设计。并在馆内 ENFUSE 咖啡厅隔巨大鸟居享用早午餐。", isKeyPlace: true,
         imageUrl: "https://kyotocity-kyocera.museum/wp-content/themes/kyotocity_kyocera_museum/assets/images/ogp.png",
         casaLink: "https://casabrutus.com/search?q=京都市京セラ美術館",
-        audioLink: "https://www.xiaoyuzhoufm.com/episode/5fc49ab6e0f5e723bb7e5cbe"
+        audioLink: "https://www.xiaoyuzhoufm.com/episode/60b64f3e44855dc87595304b"
       },
-      { time: "14:00", name: "森山大道 回顾展", description: "本届最重磅的森山大道“A Retrospective”回顾大展。", isKeyPlace: true, casaLink: "https://casabrutus.com/search?q=森山大道", audioLink: "https://www.xiaoyuzhoufm.com/episode/615a6b09c5957ab4ba6c82ba", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/11/yokosuka-4800.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/daido-moriyama/" },
-      { time: "15:00", name: "ERNEST COLE & PIETER HUGO", description: "聚焦南非历史与纪实的重磅展览连看。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/6311a2fcf8813fa0ac6ad68d", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/12/NN11432116-4800-1639x2400.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/ernest-cole/" },
-      { time: "18:30", name: "Monk", description: "主厨每天采摘在地食材并用柴火窑炉烤制披萨和料理（Tabelog 百名店）。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/63b2a658931165bed9c4fcad", imageUrl: "https://scontent-nrt1-2.cdninstagram.com/v/t51.75761-15/491894174_18269332324273367_2710578025869041713_n.jpg?stp=dst-jpg_e35_p1080x1080_tt6&_nc_cat=101&ig_cache_key=MzYyMjE3MDAzMTQ2OTUxODAwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=hNYbzvj9J-IQ7kNvwFK4jfA&_nc_oc=Ado3T_Dvnp43Ikqa0aKO-2dqgxMcGfEGeLpIHZdRnSqtW_KK1c5AA6A-6x84OMvMG6KdPlIPhhDpA4Jtdefp8ore&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-2.cdninstagram.com&_nc_gid=djgQOvGXsYYKd_M5MvPshQ&_nc_ss=7a22e&oh=00_Af0Mon9q6kPadW1V6VO9aXQzNYHJokhcTqC4MRFo3WyCpw&oe=69EFD4C6" }
+      { time: "14:00", name: "森山大道 回顾展", description: "本届最重磅的森山大道“A Retrospective”回顾大展。", isKeyPlace: true, casaLink: "https://casabrutus.com/search?q=森山大道", audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/11/yokosuka-4800.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/daido-moriyama/" },
+      { time: "15:00", name: "ERNEST COLE & PIETER HUGO", description: "聚焦南非历史与纪实的重磅展览连看。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/12/NN11432116-4800-1639x2400.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/ernest-cole/" },
+      { time: "18:30", name: "Monk", description: "主厨每天采摘在地食材并用柴火窑炉烤制披萨 and 料理（Tabelog 百名店）。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/63b2a658931165bed9c4fcad", imageUrl: "https://scontent-nrt1-2.cdninstagram.com/v/t51.75761-15/491894174_18269332324273367_2710578025869041713_n.jpg?stp=dst-jpg_e35_p1080x1080_tt6&_nc_cat=101&ig_cache_key=MzYyMjE3MDAzMTQ2OTUxODAwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=hNYbzvj9J-IQ7kNvwFK4jfA&_nc_oc=Ado3T_Dvnp43Ikqa0aKO-2dqgxMcGfEGeLpIHZdRnSqtW_KK1c5AA6A-6x84OMvMG6KdPlIPhhDpA4Jtdefp8ore&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-2.cdninstagram.com&_nc_gid=djgQOvGXsYYKd_M5MvPshQ&_nc_ss=7a22e&oh=00_Af0Mon9q6kPadW1V6VO9aXQzNYHJokhcTqC4MRFo3WyCpw&oe=69EFD4C6" }
     ]
   },
   {
@@ -123,9 +202,9 @@ const itineraryData: DayPanel[] = [
         casaLink: "https://casabrutus.com/search?q=福田美術館",
         audioLink: "https://www.xiaoyuzhoufm.com/episode/61823eb9ccefb250e38a2e58"
       },
-      { time: "13:30", name: "誉田屋源兵卫", description: "近 300 年历史的带匠老铺，在“竹院の間”和“黑藏”欣赏前卫展览。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/6361c479421f57ec0ec268d8", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/12/Heroes_del_Brillo_02-2048x1429.jpeg", imageLink: "https://www.kyotographie.jp/programs/2026/federico-estol/" },
-      { time: "15:00", name: "有斐斋弘道馆", description: "江户时代的儒学道场遗址内的沉浸式光影展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/6215e4fbe1b3b28b7e2cc4a3", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/11/16-DSCF3248_RGB-4800-2048x1536.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/juliette-agnel/" },
-      { time: "19:00", name: "岚山 𠮷村 (Arashiyama Yoshimura)", description: "吃一份极致的手打荞麦面。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/641029283e9b1da98471557a", imageUrl: "https://yoshimura-gr.com/arashiyama/images/top/top-main4.jpg", imageLink: "https://yoshimura-gr.com/arashiyama/" }
+      { time: "13:30", name: "誉田屋源兵卫", description: "近 300 年历史的带匠老铺，在“竹院の間”和“黑藏”欣赏前卫展览。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/12/Heroes_del_Brillo_02-2048x1429.jpeg", imageLink: "https://www.kyotographie.jp/programs/2026/federico-estol/" },
+      { time: "15:00", name: "有斐斋弘道馆", description: "江户时代的儒学道场遗址内的沉浸式光影展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/11/16-DSCF3248_RGB-4800-2048x1536.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/juliette-agnel/" },
+      { time: "19:00", name: "岚山 𠮷村 (Arashiyama Yoshimura)", description: "吃一份极致的手打荞麦面。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/612a14e9f73111ba71edcfaf", imageUrl: "https://yoshimura-gr.com/arashiyama/images/top/top-main4.jpg", imageLink: "https://yoshimura-gr.com/arashiyama/" }
     ]
   },
   {
@@ -137,8 +216,8 @@ const itineraryData: DayPanel[] = [
         casaLink: "https://casabrutus.com/search?q=ロームシアター京都",
         audioLink: "https://www.xiaoyuzhoufm.com/episode/60b0e513e0f5e723bb7e68fa"
       },
-      { time: "13:30", name: "KYOTOGRAPHIE Photobook Fair", description: "在此淘独立摄影书并与世界各地的影像艺术家面对面交流。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/646c2db57eb0a12e3e551f38", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2026/03/KGbf_banner260312-A1.gif" },
-      { time: "16:00", name: "ASPHODEL & ygion", description: "漫步祗园鸭川旁的当代多功能艺术空间看展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/646c2db57eb0a12e3e551f38", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/11/08_SariShibata-2048x1536.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/sari-shibata/" },
+      { time: "13:30", name: "KYOTOGRAPHIE Photobook Fair", description: "在此淘独立摄影书并与世界各地的影像艺术家面对面交流。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2026/03/KGbf_banner260312-A1.gif" },
+      { time: "16:00", name: "ASPHODEL & ygion", description: "漫步祗园鸭川旁的当代多功能艺术空间看展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/11/08_SariShibata-2048x1536.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/sari-shibata/" },
       { time: "19:00", name: "VelRosier", description: "米其林二星，体验极具颠覆性的现代中华/法式融合料理。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/656ab35e381662fb52ab27e3", hideImage: true }
     ]
   },
@@ -152,7 +231,7 @@ const itineraryData: DayPanel[] = [
         audioLink: "https://www.xiaoyuzhoufm.com/episode/5eba1a2ae0f5e723bb410d54"
       },
       { time: "13:30", name: "東本願寺 大玄関", description: "在宏大的木造空间内观看 LEBOHANG KGANYE 的艺术展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/5f854ca6e0f5e723bb35bdc9", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/12/Gladys-2022-2.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/lebohang-kganye/" },
-      { time: "15:00", name: "重信会馆", description: "探访废弃遗迹摄影大师双人组的展览。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/646c2db57eb0a12e3e551f38", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/12/c803d74b-86ff-49a9-b633-3d83e9633402-Ruines-de-Paris-2024-4800-2048x1639.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/yves-marchand-romain-meffre/" },
+      { time: "15:00", name: "重信会馆", description: "探访废弃遗迹摄影大师双人组的展览。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/12/c803d74b-86ff-49a9-b633-3d83e9633402-Ruines-de-Paris-2024-4800-2048x1639.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/yves-marchand-romain-meffre/" },
       { time: "16:30", name: "出町桝形商店街 DELTA", description: "感受艺术与市井长屋商店街的完美融合。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/61e05a839e99c824c966468a", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2026/03/Kyotographie-Thandiwe-Muriu-1-Current-Copy-1600x2400.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/arp-thandiwe-muriu/" },
       { time: "18:30", name: "cenci", description: "米其林一星，平安神宫旁红砖餐厅内的意式料理创新。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/650b21dfb5c00e62057d1eb2", hideImage: true }
     ]
