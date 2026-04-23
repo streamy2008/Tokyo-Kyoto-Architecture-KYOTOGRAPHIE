@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
-import { MapPin, Headphones, ExternalLink, ArrowLeft } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MapPin, Headphones, ExternalLink, ArrowLeft, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 type Location = {
@@ -169,6 +169,43 @@ const itineraryData: DayPanel[] = [
   }
 ];
 
+const allCoverImages = itineraryData
+  .flatMap(day => day.locations)
+  .filter(loc => loc.imageUrl && !loc.hideImage)
+  .map(loc => loc.imageUrl as string);
+
+const DynamicCover = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % allCoverImages.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-[#222]">
+      <AnimatePresence mode="popLayout">
+        <motion.img
+          key={currentIndex}
+          src={allCoverImages[currentIndex]}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 0.8, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+        />
+      </AnimatePresence>
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center pointer-events-none z-10">
+         <h2 className="text-[#FAF9F7] text-4xl md:text-5xl lg:text-7xl font-serif tracking-tight mb-4 drop-shadow-xl saturate-0">Tokyo & Kyoto</h2>
+         <p className="font-sans text-[#FAF9F7]/90 uppercase tracking-[0.3em] text-xs md:text-sm drop-shadow-md">Architecture & KYOTOGRAPHIE</p>
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#222]/80 via-transparent to-[#222]/30 pointer-events-none" />
+    </div>
+  );
+};
+
 const DayDetail = ({ activeDayData }: { activeDayData: DayPanel }) => {
   return (
     <motion.div 
@@ -289,74 +326,142 @@ const DayDetail = ({ activeDayData }: { activeDayData: DayPanel }) => {
 };
 
 export default function App() {
-  const [openDay, setOpenDay] = useState<number>(1);
-  const [isMobileDetailOpen, setIsMobileDetailOpen] = useState<boolean>(false);
+  const [openDay, setOpenDay] = useState<number>(0);
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   
-  const activeDayData = itineraryData.find(d => d.day === openDay) || itineraryData[0];
+  const activeDayData = openDay > 0 ? itineraryData.find(d => d.day === openDay) || itineraryData[0] : null;
 
   return (
-    <div className="h-screen w-full bg-[#F2F0ED] text-[#333333] font-serif overflow-hidden flex flex-col">
+    <div className="h-screen w-full bg-[#F2F0ED] text-[#333333] font-serif overflow-hidden flex flex-col relative">
       {/* Top Navigation Bar */}
-      <header className="w-full py-4 md:py-8 px-6 md:px-12 flex flex-col sm:flex-row justify-between items-baseline border-b border-[#DCD9D4] shrink-0">
-        <div>
-          <h1 className="text-3xl lg:text-4xl tracking-tight text-[#222]">
-            10 DAYS <span className="font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mt-2 sm:mt-0 block sm:inline sm:ml-4 text-[#8C867A]">Tokyo & Kyoto / Architecture & KYOTOGRAPHIE</span>
+      <header className="w-full py-4 md:py-8 pl-4 pr-6 md:px-12 flex flex-col sm:flex-row justify-between items-baseline sm:items-center border-b border-[#DCD9D4] shrink-0 bg-[#FAF9F7] relative z-20">
+        <div className="flex items-center gap-3 md:gap-6">
+          <button 
+            onClick={() => setIsSidebarOpen(true)}
+            className="w-10 h-10 shrink-0 flex items-center justify-center bg-white border border-[#EBE8E4] rounded-full hover:bg-[#222] hover:text-white transition-colors"
+          >
+            <Menu className="w-4 h-4" />
+          </button>
+          <h1 className="text-3xl lg:text-4xl tracking-tight text-[#222] flex items-baseline">
+            <span className="font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#8C867A]">Tokyo & Kyoto / Architecture & KYOTOGRAPHIE</span>
           </h1>
         </div>
-        <div className="flex gap-4 md:gap-8 font-sans text-[10px] uppercase tracking-[0.2em] text-[#8C867A] mt-4 sm:mt-0">
+        <div className="flex gap-4 md:gap-8 font-sans text-[10px] uppercase tracking-[0.2em] text-[#8C867A] mt-4 sm:mt-0 ml-14 sm:ml-0">
           <span>Volume 01</span>
           <span>Spring 2026</span>
         </div>
       </header>
 
-      <main className="flex-1 flex flex-col lg:flex-row overflow-hidden">
-        {/* Sidebar: The 10-Day Itinerary List */}
-        <nav className="w-full lg:w-[320px] lg:border-r border-[#DCD9D4] flex flex-col bg-[#FAF9F7] shrink-0 overflow-y-auto h-full lg:border-b-0">
-          <div className="p-4 md:p-6 border-b border-[#DCD9D4] bg-white sticky top-0 z-10 shrink-0 shadow-sm lg:shadow-none">
-            <p className="font-sans text-[11px] uppercase tracking-widest text-[#8C867A] mb-1">Overview</p>
-            <h2 className="text-xl">The Journey</h2>
-          </div>
-          <div className="flex-1 font-sans text-sm pb-12 lg:pb-0">
-            {itineraryData.map((dayData) => {
-              const isActive = openDay === dayData.day;
-              return (
-                <div key={dayData.day} className="flex flex-col bg-white">
-                  <div 
-                    onClick={() => {
-                      setOpenDay(dayData.day);
-                      setIsMobileDetailOpen(true);
-                    }}
-                    className={`p-5 md:p-6 border-b lg:border-b flex flex-col sm:flex-row justify-between sm:items-center cursor-pointer transition-all duration-700 relative group overflow-hidden ${
-                      isActive 
-                        ? 'border-[#DCD9D4] bg-[#FAF9F7]' 
-                        : 'border-[#EBE8E4] bg-white hover:bg-[#FAF9F7]'
-                    }`}
-                  >
-                    <div className={`absolute left-0 top-0 bottom-0 w-[2px] bg-[#222] transition-all duration-700 ease-[0.22,1,0.36,1] origin-top ${isActive ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 group-hover:scale-y-50 group-hover:opacity-20'}`} />
-                    <span className={`transition-all duration-700 ease-[0.22,1,0.36,1] ${isActive ? 'text-[#222] translate-x-2' : 'text-[#8C867A] group-hover:translate-x-1'}`}>
-                      <span className="font-sans font-medium text-[10px] uppercase tracking-widest block sm:inline">DAY {dayData.day.toString().padStart(2, '0')}</span> 
-                      <span className="mt-1 sm:mt-0 sm:ml-4 font-serif italic text-[15px] block sm:inline">{dayData.title.split(' —— ')[0]}</span>
-                    </span>
-                    <span className={`font-mono text-[10px] mt-3 sm:mt-0 transition-all duration-700 ease-[0.22,1,0.36,1] ${isActive ? 'opacity-100 text-[#222]' : 'opacity-40 text-[#8C867A]'}`}>{dayData.date}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </nav>
-
-        {/* Main Content: Day Detail (Desktop) */}
-        <section className="hidden lg:flex flex-1 bg-white p-6 md:p-12 lg:p-16 flex-col overflow-y-auto [&::-webkit-scrollbar]:hidden relative">
-          <AnimatePresence mode="wait">
-            <DayDetail key={activeDayData.day} activeDayData={activeDayData} />
-          </AnimatePresence>
-        </section>
+      <main className="flex-1 relative overflow-hidden bg-white">
+        <AnimatePresence mode="wait">
+          {openDay === 0 ? (
+            <motion.div 
+              key="cover"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="w-full h-full absolute inset-0"
+            >
+              <DynamicCover />
+            </motion.div>
+          ) : (
+            <motion.div 
+              key="detail"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="w-full h-full overflow-y-auto p-6 md:p-12 lg:p-16 [&::-webkit-scrollbar]:hidden absolute inset-0 bg-white"
+            >
+              {activeDayData && <DayDetail activeDayData={activeDayData} />}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
 
+      {/* Navigation Drawer */}
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsSidebarOpen(false)}
+              className="fixed inset-0 bg-[#222]/30 backdrop-blur-sm z-40"
+            />
+            <motion.nav
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300, mass: 0.8 }}
+              className="fixed top-0 left-0 bottom-0 w-[85vw] max-w-[360px] bg-[#FAF9F7] z-50 flex flex-col shadow-2xl border-r border-[#DCD9D4]"
+            >
+              <div className="p-4 md:p-6 border-b border-[#DCD9D4] bg-white sticky top-0 flex justify-between items-center shrink-0">
+                <div>
+                  <p className="font-sans text-[11px] uppercase tracking-widest text-[#8C867A] mb-1">Overview</p>
+                  <h2 className="text-xl">The Journey</h2>
+                </div>
+                <button 
+                  onClick={() => setIsSidebarOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center bg-white border border-[#EBE8E4] rounded-full hover:bg-[#222] hover:text-white transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+              <div className="flex-1 overflow-y-auto font-sans text-sm pb-12">
+                <div 
+                  onClick={() => {
+                    setOpenDay(0);
+                    setIsSidebarOpen(false);
+                  }}
+                  className={`p-5 md:p-6 border-b flex flex-col cursor-pointer transition-all duration-700 relative group overflow-hidden ${
+                    openDay === 0 ? 'border-[#DCD9D4] bg-[#FAF9F7]' : 'border-[#EBE8E4] bg-white hover:bg-[#FAF9F7]'
+                  }`}
+                >
+                  <div className={`absolute left-0 top-0 bottom-0 w-[2px] bg-[#222] transition-all duration-700 ease-[0.22,1,0.36,1] origin-top ${openDay === 0 ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 group-hover:scale-y-50 group-hover:opacity-20'}`} />
+                  <span className={`transition-all duration-700 ease-[0.22,1,0.36,1] ${openDay === 0 ? 'text-[#222] translate-x-2' : 'text-[#8C867A] group-hover:translate-x-1'}`}>
+                    <span className="font-sans font-medium text-[10px] uppercase tracking-widest block">COVER PAGE</span> 
+                    <span className="mt-1 font-serif italic text-[15px] block">Architecture & Taste / Kyoto & Tokyo</span>
+                  </span>
+                </div>
+                {itineraryData.map((dayData) => {
+                  const isActive = openDay === dayData.day;
+                  return (
+                    <div 
+                      key={dayData.day}
+                      onClick={() => {
+                        setOpenDay(dayData.day);
+                        setIsSidebarOpen(false);
+                      }}
+                      className={`p-5 md:p-6 border-b flex flex-col sm:flex-row justify-between sm:items-center cursor-pointer transition-all duration-700 relative group overflow-hidden ${
+                        isActive 
+                          ? 'border-[#DCD9D4] bg-[#FAF9F7]' 
+                          : 'border-[#EBE8E4] bg-white hover:bg-[#FAF9F7]'
+                      }`}
+                    >
+                      <div className={`absolute left-0 top-0 bottom-0 w-[2px] bg-[#222] transition-all duration-700 ease-[0.22,1,0.36,1] origin-top ${isActive ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 group-hover:scale-y-50 group-hover:opacity-20'}`} />
+                      <span className={`transition-all duration-700 ease-[0.22,1,0.36,1] ${isActive ? 'text-[#222] translate-x-2' : 'text-[#8C867A] group-hover:translate-x-1'}`}>
+                        <span className="font-sans font-medium text-[10px] uppercase tracking-widest block sm:inline">DAY {dayData.day.toString().padStart(2, '0')}</span> 
+                        <span className="mt-1 sm:mt-0 sm:ml-4 font-serif italic text-[15px] block sm:inline">{dayData.title.split(' —— ')[0]}</span>
+                      </span>
+                      <span className={`font-mono text-[10px] mt-3 sm:mt-0 transition-all duration-700 ease-[0.22,1,0.36,1] ${isActive ? 'opacity-100 text-[#222]' : 'opacity-40 text-[#8C867A]'}`}>{dayData.date}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </motion.nav>
+          </>
+        )}
+      </AnimatePresence>
+
       {/* Bottom Status/Interactive Bar */}
-      <footer className="w-full py-4 px-6 md:px-12 border-t border-[#DCD9D4] bg-[#FAF9F7] flex justify-between items-center shrink-0">
+      <footer className="w-full py-4 px-6 md:px-12 border-t border-[#DCD9D4] bg-[#FAF9F7] flex justify-between items-center shrink-0 z-20 relative">
         <div className="flex gap-6 font-sans text-[10px] uppercase tracking-[0.2em] text-[#8C867A]">
-          <span>{openDay.toString().padStart(2, '0')} / 10 Total Journey</span>
+          <span>
+            {openDay === 0 ? "Cover Page" : `Day ${openDay.toString().padStart(2, '0')}`}
+          </span>
           <span className="hidden sm:inline">Syncing to Xiaoyuzhou</span>
         </div>
         <div className="flex items-center gap-4">
@@ -366,32 +471,6 @@ export default function App() {
           <span className="font-sans text-[10px] text-[#8C867A]">{Math.round((openDay / 10) * 100)}% Complete</span>
         </div>
       </footer>
-
-      {/* Mobile Fullscreen Detail View */}
-      <AnimatePresence>
-        {isMobileDetailOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: "100%" }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-50 bg-white flex flex-col lg:hidden overflow-hidden"
-          >
-            <div className="flex justify-between items-center px-6 py-4 border-b border-[#DCD9D4] bg-[#FAF9F7] shrink-0 sticky top-0 z-10">
-              <button 
-                onClick={() => setIsMobileDetailOpen(false)}
-                className="flex items-center gap-2 font-sans text-[10px] uppercase tracking-widest text-[#8C867A] hover:text-[#222] transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4" /> Back
-              </button>
-              <span className="font-mono text-[10px] text-[#222]">DAY {activeDayData.day.toString().padStart(2, '0')}</span>
-            </div>
-            <div className="flex-1 overflow-y-auto px-6 py-8">
-              <DayDetail activeDayData={activeDayData} />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
