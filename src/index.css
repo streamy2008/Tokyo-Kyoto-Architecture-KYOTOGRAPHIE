@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Serif SC", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Noto Serif SC", ui-serif, Georgia, serif;
+  --font-mono: "Noto Serif SC", ui-monospace, monospace;
+}
+
+body {
+  font-family: "Noto Serif SC", serif;
+}
