@@ -32,7 +32,7 @@ const itineraryData: DayPanel[] = [
     day: 1, date: "5/2", title: "抵达东京 —— 入住云端的“原始森林”",
     locations: [
       { 
-        time: "23:00", name: "1 Hotel Tokyo", description: "前往赤坂的 1 Hotel Tokyo 办理入住。在 38 层以上的云端感受原生苔藓、大谷石和再生木材构成的“亲自然设计”极简空间。", isKeyPlace: true,
+        time: "23:00", name: "1 Hotel Tokyo (5 月 2 日--6 日)", description: "前往赤坂的 1 Hotel Tokyo 办理入住。在 38 层以上的云端感受原生苔藓、大谷石和再生木材构成的“亲自然设计”极简空间。", isKeyPlace: true,
         imageUrl: "https://www.1hotels.com/sites/1hotels.com/files/styles/card/public/brandfolder/2znn98pnfk2cfpv3s7jjc88/1_Hotel_Tokyo_Lounge_areah1280.webp?h=deaec4b9&itok=zKl-oebU",
         casaLink: "https://casabrutus.com/search?q=1+Hotel+Tokyo",
         audioLink: "https://www.xiaoyuzhoufm.com/episode/61adce5844855dc875952c1e"
@@ -187,7 +187,14 @@ const itineraryData: DayPanel[] = [
       },
       { time: "14:30", name: "京都文化博物馆 別館", description: "在辰野金吾设计的红砖西洋建筑内看展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2025/12/368451053e4d146b1fd04a02e7d6f1f6-1686x2400.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/linder-sterling/" },
       { time: "15:30", name: "嶋臺（しまだい）ギャラリー", description: "具有 400 年历史的传统建筑中的摄影当代展。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/661266ed13fe0a1d48ce4626", imageUrl: "https://shimadai-gallery.com/wp-content/uploads/2025/04/IMG_0079.jpg", imageLink: "https://www.kyotographie.jp/programs/2026/anton-corbijn/" },
-      { time: "19:00", name: "食堂 おがわ", description: "感受吧台氛围极佳的市井神级割烹（极难订位），或选择 Gion Sasaki（米其林三星）。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/612a14e9f73111ba71edcfaf", imageUrl: "https://scontent-nrt1-1.cdninstagram.com/v/t51.82787-15/659413644_18179174446379964_1987458934756460599_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=103&ig_cache_key=MzI4NTY0NDk1MTQyNDkzNzMxMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5oZHIuQzMifQ%3D%3D&_nc_ohc=FG6tWtSa5icQ7kNvwFuksgr&_nc_oc=Adq3GS54Td64rEVX3EGCLaI2GEdQ_mtf1qqVvz3oQVJm3nUeBOb6YcW87x8zz0Zffr9fcSK_M-b2muIOlGCRyU9T&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-1.cdninstagram.com&_nc_gid=oZp8BUpcnk65E3TKmoLORg&_nc_ss=7a22e&oh=00_Af2lyouce7AeUjGD_DKNDy02qouIswKDA-Ubi_lmPXqZpw&oe=69EFBD53" }
+      { time: "19:00", name: "食堂 おがわ", description: "感受吧台氛围极佳的市井神级割烹（极难订位），或选择 Gion Sasaki（米其林三星）。", isKeyPlace: true, audioLink: "https://www.xiaoyuzhoufm.com/episode/612a14e9f73111ba71edcfaf", imageUrl: "https://scontent-nrt1-1.cdninstagram.com/v/t51.82787-15/659413644_18179174446379964_1987458934756460599_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=103&ig_cache_key=MzI4NTY0NDk1MTQyNDkzNzMxMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5oZHIuQzMifQ%3D%3D&_nc_ohc=FG6tWtSa5icQ7kNvwFuksgr&_nc_oc=Adq3GS54Td64rEVX3EGCLaI2GEdQ_mtf1qqVvz3oQVJm3nUeBOb6YcW87x8zz0Zffr9fcSK_M-b2muIOlGCRyU9T&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-1.cdninstagram.com&_nc_gid=oZp8BUpcnk65E3TKmoLORg&_nc_ss=7a22e&oh=00_Af2lyouce7AeUjGD_DKNDy02qouIswKDA-Ubi_lmPXqZpw&oe=69EFBD53" },
+      { 
+        time: "20:00", name: "Malda Kyoto (5 月 6 日 -- 9 日)", 
+        description: "地处京都心脏河原町/乌丸御池宁静小巷，客房兼具设计感与宽敞空间。住客公认的最大亮点是备受赞誉的素食早餐，采用应季蔬菜精心烹制。服务评分普遍高达 9.6 以上，提供如家般的舒适体验。", 
+        isKeyPlace: true, 
+        imageUrl: "https://images.squarespace-cdn.com/content/v1/5e1eb5436fe19076661fee5d/1580946544674-4EGC7XCFJI2XSSD69M9I/0-31%2Bcopy.jpg?format=750w",
+        officialLink: "https://www.maldakyoto.com/"
+      }
     ]
   },
   {
