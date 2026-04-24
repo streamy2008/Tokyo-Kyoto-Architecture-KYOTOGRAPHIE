@@ -32,7 +32,7 @@ const itineraryData: DayPanel[] = [
     day: 1, date: "5/2", title: "抵达东京 —— 入住云端的“原始森林”",
     locations: [
       { 
-        time: "晚上", name: "1 Hotel Tokyo", description: "前往赤坂的 1 Hotel Tokyo 办理入住。在 38 层以上的云端感受原生苔藓、大谷石和再生木材构成的“亲自然设计”极简空间。", isKeyPlace: true,
+        time: "23:00", name: "1 Hotel Tokyo", description: "前往赤坂的 1 Hotel Tokyo 办理入住。在 38 层以上的云端感受原生苔藓、大谷石和再生木材构成的“亲自然设计”极简空间。", isKeyPlace: true,
         imageUrl: "https://www.1hotels.com/sites/1hotels.com/files/styles/card/public/brandfolder/2znn98pnfk2cfpv3s7jjc88/1_Hotel_Tokyo_Lounge_areah1280.webp?h=deaec4b9&itok=zKl-oebU",
         casaLink: "https://casabrutus.com/search?q=1+Hotel+Tokyo",
         audioLink: "https://www.xiaoyuzhoufm.com/episode/61adce5844855dc875952c1e"
@@ -43,10 +43,17 @@ const itineraryData: DayPanel[] = [
     day: 2, date: "5/3", title: "代官山 / 中目黑 —— 质感生活街区与独立品牌",
     locations: [
       { 
-        time: "11:00", name: "代官山 T-Site", description: "由 Klein Dytham 建筑事务所设计，颠覆全球书店商业模式的建筑群落。在旁边的 IVY PLACE 享用早午餐（推荐必点：经典酪乳松饼 Classic Buttermilk Pancakes 以及招牌平铺面包配鹰嘴豆泥 Hummus）。", isKeyPlace: true,
+        time: "11:00", name: "代官山 T-Site", description: "由 Klein Dytham 建筑事务所设计，颠覆全球书店商业模式的建筑群落，在此流连感受茑屋书店的文化氛围。", isKeyPlace: true,
         imageUrl: "https://store.tsite.jp/static_contents/site/tsite/daikanyama/img/about/key.jpg?time=20240122",
         casaLink: "https://casabrutus.com/search?q=代官山+T-Site",
         audioLink: "https://www.xiaoyuzhoufm.com/episode/601d3606f1dcc7dc22ed9b22"
+      },
+      {
+        time: "12:15", name: "レカマヤジフ (Rekamayajifu)",
+        description: "名门中华出身的主厨掌勺，提供世间罕见的“咖喱分解套餐”。将咖喱的混合香料逐一分解，带你体验一场极具创意与深度的香料之旅。",
+        isKeyPlace: true,
+        casaLink: "https://casabrutus.com/categories/food/170872",
+        imageUrl: "https://tokyo-kyoto.oss-cn-beijing.aliyuncs.com/0105fujiyamacurry19_1104.jpeg"
       },
       { time: "13:30", name: "1LDK apartments.", description: "中目黑标志性买手店，精选男女装与生活杂货。对面就是目黑川，是街区质感生活的窗口。", isKeyPlace: false, imageUrl: "https://onlinestore.1ldkshop.com/contents/wp-content/uploads/2026/03/%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A-1-1-scaled.jpg", audioLink: "https://www.xiaoyuzhoufm.com/episode/601d3606f1dcc7dc22ed9b22" },
       { 
@@ -65,10 +72,9 @@ const itineraryData: DayPanel[] = [
         audioLink: "https://www.xiaoyuzhoufm.com/episode/66416f406ab15a81ca040713"
       },
       { 
-        time: "19:00", name: "Narisawa", description: "米其林二星。体验主厨将‘森林’搬上餐桌的饮食哲学，是极具人文情怀的创意料理巅峰。", isKeyPlace: true,
-        imageUrl: "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/1334583/2800mm_x_1420mm_2_wh2bys.jpg",
-        casaLink: "https://casabrutus.com/search?q=Narisawa",
-        audioLink: "https://www.xiaoyuzhoufm.com/episode/64df2292f7eaefa21d03c737"
+        time: "19:00", name: "乃木坂 結yui", description: "米其林一星主厨增山刚主理。以四川料理为基础融入和风元素，追求“日式洗练”的全新高度。", isKeyPlace: true,
+        imageUrl: "https://wp2022.casabrutus.com/wp-content/uploads/2021/06/0622yui_1200.jpg",
+        casaLink: "https://casabrutus.com/categories/food/190548"
       }
     ]
   },
@@ -110,11 +116,11 @@ const itineraryData: DayPanel[] = [
   },
   {
     "time": "18:30",
-    "name": "神乐坂 虎白",
-    "description": "神乐坂的米其林三星，享受极具颠覆感与高级质感的顶级怀石料理。",
+    "name": "すし家 祥太 (Sushiya Shota)",
+    "description": "位于麻布十番的江户前寿司名店。韩国主厨受名作《将太的寿司》启发而赴日学艺，其精湛的技艺与绝佳的味道成就了漫画般的现实传奇。",
     "isKeyPlace": true,
-    "audioLink": "https://www.xiaoyuzhoufm.com/episode/656ab35e381662fb52ab27e3",
-    "hideImage": true
+    "imageUrl": "https://wp2022.casabrutus.com/wp-content/uploads/2020/01/0121syota_1200.jpg",
+    "casaLink": "https://casabrutus.com/categories/food/129000"
   }
 ]
   },
@@ -157,17 +163,22 @@ const itineraryData: DayPanel[] = [
   },
   {
     "time": "18:30",
-    "name": "Seizan 晴山",
-    "description": "位于三田的米其林二星，在极具季节感的高级割烹氛围中享用晚餐。",
+    "name": "Chinese Restaurant 漢",
+    "description": "曾任东京文华东方酒店中餐厅烤肉主厨的店主独立开设的正宗广东料理。提供超高性价比的丰富单品，堪称新一代的“街中华”。",
     "isKeyPlace": true,
-    "audioLink": "https://www.xiaoyuzhoufm.com/episode/650b21dfb5c00e62057d1eb2",
-    "hideImage": true
+    "imageUrl": "https://wp2022.casabrutus.com/wp-content/uploads/2019/12/1227kan_1200.jpg",
+    "casaLink": "https://casabrutus.com/categories/food/127546"
   }
 ]
   },
   {
     day: 5, date: "5/6", title: "东京转京都 —— 洛中摄影核心区",
     locations: [
+      { 
+        time: "12:00", name: "ル・セル (Le Sel)", description: "由东京西麻布一星餐厅“Crony”在京都打造的有机拉面店。采用从小菜开始，到拉面和甜点结束的类似小怀石料理的形式，并且全部采用有机食材。", isKeyPlace: true,
+        imageUrl: "https://wp2022.casabrutus.com/wp-content/uploads/2019/05/0523le-sel_1200.jpg",
+        casaLink: "https://casabrutus.com/categories/food/106208"
+      },
       { 
         time: "13:30", name: "八竹庵（旧川崎家住宅）", description: "参观 FATMA HASSONA 等多场 KYOTOGRAPHIE 展览。", isKeyPlace: true,
         imageUrl: "https://www.kyotographie.jp/wp2025/wp-content/uploads/2024/12/220410_DSC2216_4000-2048x1248.jpg",
@@ -197,7 +208,14 @@ const itineraryData: DayPanel[] = [
     day: 7, date: "5/8", title: "岚山清幽与町屋内的超现实色彩",
     locations: [
       { 
-        time: "11:00", name: "岚山 福田美术馆", description: "安田幸一设计，隔着玻璃长窗面对保津川和渡月桥享用简餐。", isKeyPlace: true,
+        time: "09:30", name: "210 年古建的结构解剖学：パンとエスプレッソと嵐山庭園 (Bread, Espresso & 岚山庭园)", 
+        description: "京都府指定文化财新生：这家店位于建于 210 年前的“旧小林家住宅”内，是一栋拥有巨大茅草屋顶（茅葺屋根）的传统古民家。走进去，你能清晰地看到头顶粗犷的黑色木质横梁与百年土墙。在这样一个充满历史厚重感的空间里，享用一份京都限定的“抹茶法式吐司”搭配精品手冲。一边吃早午餐，一边端详传统木造榫卯结构与现代商业动线的缝合，极具在地生活方式的张力。（注：这家非常火爆，建议早上 8点-9点去取号，或者作为漫步后的备选）。", 
+        isKeyPlace: true,
+        imageUrl: "https://bread-espresso.jp/common/img/shop/arashiyama-cafe_shop_02.jpg",
+        casaLink: "https://casabrutus.com/categories/food/93798"
+      },
+      { 
+        time: "11:30", name: "岚山 福田美术馆", description: "安田幸一设计，隔着玻璃长窗面对保津川和渡月桥享用简餐。", isKeyPlace: true,
         imageUrl: "https://fukuda-art-museum.jp/wp/wp-content/uploads/2020/11/og_image.jpg",
         casaLink: "https://casabrutus.com/search?q=福田美術館",
         audioLink: "https://www.xiaoyuzhoufm.com/episode/61823eb9ccefb250e38a2e58"
