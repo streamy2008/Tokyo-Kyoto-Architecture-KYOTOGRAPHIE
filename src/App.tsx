@@ -24,12 +24,14 @@ type DayPanel = {
   day: number;
   date: string;
   title: string;
+  titleLink?: string;
   locations: Location[];
 };
 
 const itineraryData: DayPanel[] = [
   {
-    day: 1, date: "5/2", title: "抵达东京 —— 入住云端的“原始森林”",
+    day: 1, date: "5/2", title: "北京-东京\n15:30-20:00\n首都T3-羽田T3 —— 入住云端的“原始森林”",
+    titleLink: "https://a.feizhu.com/0sZkGx",
     locations: [
       { 
         time: "23:00", name: "1 Hotel Tokyo (2/5--6/5)", description: "前往赤坂的 1 Hotel Tokyo 办理入住。在 38 层以上的云端感受原生苔藓、大谷石和再生木材构成的“亲自然设计”极简空间。", isKeyPlace: true,
@@ -162,7 +164,15 @@ const itineraryData: DayPanel[] = [
     "hideImage": true
   },
   {
-    "time": "18:30",
+    "time": "18:00",
+    "name": "Karimoku Commons Tokyo",
+    "description": "一整栋的复合概念空间，由Karimoku策展。1楼设有不定期主题展（如MAS品牌的桧木主题）；2楼及3楼提出“融合”的设计概念，分别展示Karimoku Case(KC)与Karimoku New Standard(KNS)系列家具，将建筑、家具工艺与艺术完美统合；4楼顶层视野开阔。这里为概念展示店（不直接售卖家具）。",
+    "isKeyPlace": true,
+    "officialLink": "https://www.motiveshowroom.com/products/karimokucommonstokyo",
+    "imageUrl": "https://shoplineimg.com/5aeef8cf0e64fefb0600a373/679d760a7a4ce619a7cbd7a6/800x.webp?source_format=jpg"
+  },
+  {
+    "time": "19:30",
     "name": "Chinese Restaurant 漢",
     "description": "曾任东京文华东方酒店中餐厅烤肉主厨的店主独立开设的正宗广东料理。提供超高性价比的丰富单品，堪称新一代的“街中华”。",
     "isKeyPlace": true,
@@ -172,7 +182,7 @@ const itineraryData: DayPanel[] = [
 ]
   },
   {
-    day: 5, date: "5/6", title: "东京转京都 —— 洛中摄影核心区",
+    day: 5, date: "5/6", title: "东京-京都 —— 洛中摄影核心区",
     locations: [
       { 
         time: "12:00", name: "ル・セル (Le Sel)", description: "由东京西麻布一星餐厅“Crony”在京都打造的有机拉面店。采用从小菜开始，到拉面和甜点结束的类似小怀石料理的形式，并且全部采用有机食材。", isKeyPlace: true,
@@ -262,7 +272,8 @@ const itineraryData: DayPanel[] = [
     ]
   },
   {
-    day: 10, date: "5/11", title: "京都回北京 —— 缓慢的告别",
+    day: 10, date: "5/11", title: "京都-北京\n14:20-16:55\n关西T1-首都T2 —— 缓慢的告别",
+    titleLink: "https://a.feizhu.com/2ajWHj",
     locations: [
       { 
         time: "09:00", name: "鸭川", description: "早上在京都的町屋醒来，去鸭川边散个步。在附近的独立咖啡馆喝一杯手冲。", isKeyPlace: false,
@@ -328,9 +339,23 @@ const DayDetail = ({ activeDayData }: { activeDayData: DayPanel }) => {
           className="h-[1px] bg-[#8C867A] mb-6"
         />
         <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-[#8C867A]">Highlight Selection</span>
-        <h2 className="text-3xl md:text-[2.75rem] lg:text-[3.25rem] font-serif mt-5 leading-[1.15] text-[#2c2a29] tracking-tight">{activeDayData.title.split(' —— ')[1] || activeDayData.title.split(' —— ')[0]}</h2>
-        <p className="mt-6 lg:mt-8 font-serif text-base md:text-lg text-[#8C867A] leading-relaxed max-w-xl italic">
-          {activeDayData.title}
+        <h2 className="text-3xl md:text-[2.75rem] lg:text-[3.25rem] font-serif mt-5 leading-[1.15] text-[#2c2a29] tracking-tight">
+          {activeDayData.titleLink ? (
+            <a href={activeDayData.titleLink} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-8 decoration-1 decoration-[#8C867A]/50 hover:text-black transition-all">
+              {activeDayData.title.split(' —— ')[1] || activeDayData.title.split(' —— ')[0]}
+            </a>
+          ) : (
+            activeDayData.title.split(' —— ')[1] || activeDayData.title.split(' —— ')[0]
+          )}
+        </h2>
+        <p className="mt-6 lg:mt-8 font-serif text-base md:text-lg text-[#8C867A] leading-relaxed max-w-xl italic whitespace-pre-line">
+          {activeDayData.titleLink ? (
+            <a href={activeDayData.titleLink} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 decoration-1 decoration-[#8C867A]/50 hover:text-black transition-all">
+              {activeDayData.title}
+            </a>
+          ) : (
+            activeDayData.title
+          )}
         </p>
       </div>
 
@@ -542,9 +567,9 @@ export default function App() {
                       }`}
                     >
                       <div className={`absolute left-0 top-0 bottom-0 w-[2px] bg-[#222] transition-all duration-700 ease-[0.22,1,0.36,1] origin-top ${isActive ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 group-hover:scale-y-50 group-hover:opacity-20'}`} />
-                      <span className={`transition-all duration-700 ease-[0.22,1,0.36,1] whitespace-nowrap ${isActive ? 'text-[#222] translate-x-2' : 'text-[#8C867A] group-hover:translate-x-1'}`}>
-                        <span className="font-sans font-medium text-[10px] uppercase tracking-widest block sm:inline">DAY {dayData.day.toString().padStart(2, '0')}</span> 
-                        <span className="mt-1 sm:mt-0 sm:ml-4 font-serif italic text-[15px] block sm:inline">{dayData.title.split(' —— ')[0]}</span>
+                      <span className={`transition-all duration-700 ease-[0.22,1,0.36,1] flex flex-col sm:flex-row sm:items-baseline ${isActive ? 'text-[#222] translate-x-2' : 'text-[#8C867A] group-hover:translate-x-1'}`}>
+                        <span className="font-sans font-medium text-[10px] uppercase tracking-widest sm:w-16 shrink-0 mt-1 sm:mt-0">DAY {dayData.day.toString().padStart(2, '0')}</span> 
+                        <span className="mt-1 sm:mt-0 font-serif italic text-[15px] whitespace-pre-line leading-snug">{dayData.title.split(' —— ')[0]}</span>
                       </span>
                       <span className={`font-mono text-[10px] mt-3 sm:mt-0 transition-all duration-700 ease-[0.22,1,0.36,1] whitespace-nowrap ${isActive ? 'opacity-100 text-[#222]' : 'opacity-40 text-[#8C867A]'}`}>{dayData.date}</span>
                     </div>
